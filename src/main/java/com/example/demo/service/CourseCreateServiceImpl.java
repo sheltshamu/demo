@@ -13,22 +13,20 @@ import java.util.UUID;
 
 public class CourseCreateServiceImpl implements CourseCreateService{
     private final CourseRepository courseRepository;
-    private final LecturerRepository lecturerRepository;
 
-    public CourseCreateServiceImpl(CourseRepository courseRepository, LecturerRepository lecturerRepository) {
+    public CourseCreateServiceImpl(CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
-        this.lecturerRepository = lecturerRepository;
     }
 
     @Override
     public CourseResponse create(CourseCreateRequest courseCreateRequest) {
         Course course = new Course();
-        course.setCode(generateCode(courseCreateRequest.getName()));
         course.setName(courseCreateRequest.getName());
+        course.setCode(generateCode(courseCreateRequest.getName()));
         course.setDateCreated(LocalDateTime.now());
         course.setDateModified(LocalDateTime.now());
         courseRepository.save(course);
-        return new CourseResponse(course);
+      return new CourseResponse(course);
     }
 
     public String generateCode(String courseName){

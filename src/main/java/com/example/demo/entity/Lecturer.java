@@ -3,27 +3,55 @@ package com.example.demo.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "lecturer")
 public class Lecturer extends BaseEntity{
-    @Column(name = "employee_number",unique = true)
+
+    @Column(name = "first_name",length = 50)
+    private String firstName;
+
+    @Column(name = "last_name",length = 50)
+    private String lastName;
+
+    @Column(name = "date_of_birth",nullable = false)
+    private LocalDate dateOfBirth;
+
+    @Column(name = "employee_number",unique = true,nullable = false)
     private String employeeNo;
-    @Column(name = "identification_Number",unique = true,length = 35)
+
+    @Column(name = "identification_Number",unique = true,length = 35,nullable = false)
     private String identificationNo;
-    @Column(length = 50)
-    private String name;
+
     @Column(length = 10)
     private String title;
 
     public Lecturer() {
     }
 
-    public Lecturer(String employeeNo, String identificationNo, String name, String title) {
-        this.employeeNo = employeeNo;
-        this.identificationNo = identificationNo;
-        this.name = name;
-        this.title = title;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getEmployeeNo() {
@@ -42,14 +70,6 @@ public class Lecturer extends BaseEntity{
         this.identificationNo = identificationNo;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -61,9 +81,11 @@ public class Lecturer extends BaseEntity{
     @Override
     public String toString() {
         return "Lecturer{" +
-                "employeeNo='" + employeeNo + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", employeeNo='" + employeeNo + '\'' +
                 ", identificationNo='" + identificationNo + '\'' +
-                ", name='" + name + '\'' +
                 ", title='" + title + '\'' +
                 '}';
     }

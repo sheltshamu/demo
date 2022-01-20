@@ -12,10 +12,6 @@ public class Course extends BaseEntity{
     @Column(unique = true,length = 30)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "lecturer_id", nullable = true)
-    private Lecturer lecturer;
-
     public Course() {
     }
 
@@ -40,20 +36,5 @@ public class Course extends BaseEntity{
         this.name = name;
     }
 
-    public Lecturer getLecturer() {
-        return lecturer;
-    }
 
-    public void setLecturer(Lecturer lecturer) {
-        this.lecturer = lecturer;
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", lecturer=" + lecturer +
-                '}';
-    }
 }

@@ -2,10 +2,14 @@ package com.example.demo.dto;
 
 import com.example.demo.entity.Lecturer;
 
+import java.time.LocalDate;
+
 public class LecturerDto {
     private String employeeNo;
     private String identificationNo;
-    private String name;
+    private String firstname;
+    private String lastname;
+    private LocalDate dateOfBirth;
     private String title;
 
     public LecturerDto() {
@@ -15,8 +19,10 @@ public class LecturerDto {
         LecturerDto lecturerDto = new LecturerDto();
         lecturerDto.employeeNo=lecturer.getEmployeeNo();
         lecturerDto.identificationNo=lecturer.getIdentificationNo();
-        lecturerDto.name=lecturer.getName();
         lecturerDto.title=lecturer.getTitle();
+        lecturerDto.firstname= lecturer.getFirstName();
+        lecturerDto.lastname=lecturer.getLastName();
+        lecturerDto.dateOfBirth=lecturer.getDateOfBirth();
         return lecturerDto;
     }
 
@@ -28,8 +34,16 @@ public class LecturerDto {
         return identificationNo;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public String getTitle() {

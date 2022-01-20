@@ -1,5 +1,6 @@
 package com.example.demo.configuration;
 
+import com.example.demo.persistence.CourseLecturerRepository;
 import com.example.demo.persistence.CourseRepository;
 import com.example.demo.persistence.LecturerRepository;
 import com.example.demo.service.*;
@@ -13,17 +14,21 @@ public class ServiceConfiguration {
         return new LecturerCreateServiceImpl(lecturerRepository);
     }
     @Bean
-    public CourseCreateService courseCreateService(CourseRepository courseRepository,LecturerRepository lecturerRepository){
-        return new CourseCreateServiceImpl(courseRepository,lecturerRepository);
-    }
-
-    @Bean
-    public CourseUpdateService courseUpdateService(CourseRepository courseRepository,LecturerRepository lecturerRepository){
-        return new CourseUpdateServiceImpl(courseRepository,lecturerRepository);
+    public CourseCreateService courseCreateService(CourseRepository courseRepository){
+        return new CourseCreateServiceImpl(courseRepository);
     }
 
     @Bean
     public FindCourseService findCourseService(CourseRepository courseRepository){
         return new FindCourseServiceImpl(courseRepository);
     }
+
+    @Bean
+    public AssignCourseService assignCourseService(CourseLecturerRepository courseLecturerRepository,
+                                                   CourseRepository courseRepository,
+                                                   LecturerRepository lecturerRepository){
+        return new AssignCourseServiceImpl(courseLecturerRepository,courseRepository,lecturerRepository);
+    }
+
+
 }

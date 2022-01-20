@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 
 public class CourseCreateRequest {
     private String name;
-    private Long lecturerId;
 
     public CourseCreateRequest() {
     }
@@ -17,7 +16,4 @@ public class CourseCreateRequest {
         return name;
     }
 
-    public Long getLecturerId() {
-        return lecturerId;
-    }
 }

@@ -17,12 +17,14 @@ public class LecturerCreateServiceImpl implements LecturerCreateService{
     @Override
     public LecturerResponse create(LecturerCreateRequest lecturerCreateRequest) {
         Lecturer lecturer = new Lecturer();
-        lecturer.setTitle(lecturerCreateRequest.getTitle());
-        lecturer.setName(lecturerCreateRequest.getName());
+        lecturer.setFirstName(lecturerCreateRequest.getFirstname());
+        lecturer.setLastName(lecturerCreateRequest.getLastname());
         lecturer.setEmployeeNo(lecturerCreateRequest.getEmployeeNo());
+        lecturer.setIdentificationNo(lecturerCreateRequest.getIdentificationNo());
+        lecturer.setDateOfBirth(lecturerCreateRequest.getDateOfBirth());
+        lecturer.setTitle(lecturerCreateRequest.getTitle());
         lecturer.setDateCreated(LocalDateTime.now());
         lecturer.setDateModified(LocalDateTime.now());
-        lecturer.setIdentificationNo(lecturerCreateRequest.getIdentificationNo());
         lecturerRepository.save(lecturer);
         return new LecturerResponse(lecturer);
     }

@@ -1,40 +1,36 @@
 package com.example.demo.request;
 
+import java.time.LocalDate;
+
 public class LecturerCreateRequest {
-    private String employeeNo;
+    private String firstname;
+    private String lastname;
+    private LocalDate dateOfBirth;
     private String identificationNo;
-    private String name;
+    private String employeeNo;
     private String title;
 
-    public String getEmployeeNo() {
-        return employeeNo;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setEmployeeNo(String employeeNo) {
-        this.employeeNo = employeeNo;
+    public String getLastname() {
+        return lastname;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public String getIdentificationNo() {
         return identificationNo;
     }
 
-    public void setIdentificationNo(String identificationNo) {
-        this.identificationNo = identificationNo;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public String getEmployeeNo() {
+        return employeeNo;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 }
